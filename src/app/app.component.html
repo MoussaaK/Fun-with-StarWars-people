@@ -1,0 +1,32 @@
+<div class="startable">
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Birth Year</th>
+      <th>Created</th>
+      <th>Eye Color</th>
+      <th>Gender</th>
+      <th>Hair color</th>
+      <th>Height</th>
+      <th>Skin color</th>
+      <th>Edited</th>
+    </tr>
+    <tr *ngFor="let item of data" [ngClass]="{'gras': item.age > 20, 'red': item.age <= 20}">
+      <td>{{item.name}}</td>
+      <td>{{item.birth_year}}</td>
+      <td>{{item.created | date: 'dd/MM/yyyy'}}</td>
+      <td>{{item.eye_color}}</td>
+      <td>{{item.gender}}</td>
+      <td>{{item.hair_color}}</td>
+      <td>{{item.height}}</td>
+      <td>{{item.skin_color}}</td>
+      <td>{{item.edited | date: 'dd/MM/yyyy'}}</td>
+    </tr>
+  </table>
+
+  <div class="text-center">
+    <button *ngIf="next !== null" type="button" class="btn btn-primary pull-right" (click)="get_people(true)">voir plus</button>
+    <button type="button" class="btn btn-default">{{page}}</button>
+    <button *ngIf="prev !== null" type="button" class="btn btn-primary pull-left" (click)="get_people(false)">voir moins</button>
+  </div>
+</div>
